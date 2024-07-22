@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}
+<h1>Публикации в категории {{ random_word }}</h1>
+{% endblock %}
+{% block header%}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'blog:index' %}">
+    Лента записей
+  </a>
+</li>
+<li class="nav-item">              
+  <a class="nav-link" href="{% url 'blog:about' %}">
+    О проекте
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'blog:rules' %}">
+    Наши правила
+  </a>
+</li>
+{% endblock %}
+{% block content %}
+{% endblock %}
+
