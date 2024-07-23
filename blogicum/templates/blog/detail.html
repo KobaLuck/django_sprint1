@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+{% endblock %}
+{% block header%}
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'blog:index' %}">
+    Лента записей
+  </a>
+</li>
+<li class="nav-item">              
+  <a class="nav-link" href="{% url 'pages:about' %}">
+    О проекте
+  </a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'pages:rules' %}">
+    Наши правила
+  </a>
+</li>
+{% endblock header %}
+{% block content %}
+<ul>
+  <li>
+    Место: {{ post.location }}
+  </li>
+  <li>
+    Дата: {{ post.date }}
+  </li>
+  <li>
+    Категория: <a href="{% url 'blog:category_posts' post.category  %}">{{ post.category }}</a>
+  </li>
+</ul>          
+<p>
+  {{ post.text|linebreaksbr }}
+</p>
+{% endblock %}
+
