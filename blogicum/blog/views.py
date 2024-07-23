@@ -45,7 +45,7 @@ posts = [
 
 
 def index(request):
-    context = {'posts': posts}
+    context = {'post': posts}
     template = 'blog/index.html'
     return render(request, template, context)
 
@@ -58,5 +58,5 @@ def post_detail(request, id):
 
 def category_posts(request, category_slug):
     template = 'blog/category.html'
-    context = {'random_word': category_slug}
+    context = {'post': category_slug}
     return render(request, template, context)
