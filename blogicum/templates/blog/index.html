@@ -22,23 +22,23 @@
 {% block content %}
 <h1>Лента записей</h1>
 <hr>
-{% for post in posts %}
+{% for line in post %}
     <article>
       <ul>
         <li>
-          Место: {{ post.location }}
+          Место: {{ line.location }}
         </li>
         <li>
-          Дата: {{ post.date }}
+          Дата: {{ line.date }}
         </li>
         <li>
-          Категория: <a href="{% url 'blog:category_posts' post.category %}">{{ post.category }}</a>
+          Категория: <a href="{% url 'blog:category_posts' line.category %}">{{ line.category }}</a>
         </li>
       </ul>          
       <p>
-        {{ post.text|truncatewords:10 }}
+        {{ line.text|truncatewords:10 }}
       </p>
-      <a href="{% url 'blog:detail' post.id %}">Читать полный текст</a>
+      <a href="{% url 'blog:detail' line.id %}">Читать полный текст</a>
     </article>
     <hr>
 {% endfor %}
