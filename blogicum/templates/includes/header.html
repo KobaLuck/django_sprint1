@@ -1,5 +1,3 @@
- <!-- blogicium\templates\includes\header.html -->
-<!-- хз зачем он тут но пусть будет. На деле сайт работает и без него -->
 {% load static %}
 <header>
     <nav class="navbar navbar-light" style="background-color: lightskyblue">
@@ -9,8 +7,23 @@
           Блогикум
         </a>        
         <ul class="nav  nav-pills">
-            {% block header %}{% endblock header %}
+          <li class="nav-item">
+            <a class="nav-link{% if request.resolver_match.url_name == 'index' %} active{% endif %}" href="{% url 'blog:index' %}">
+              Лента записей
+            </a>
+          </li>
+          <li class="nav-item">              
+            <a class="nav-link{% if request.resolver_match.url_name == 'about' %} active{% endif %}" href="{% url 'pages:about' %}">
+              О проекте
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link{% if request.resolver_match.url_name == 'rules' %} active{% endif %}" href="{% url 'pages:rules' %}">
+              Наши правила
+            </a>
+          </li>
         </ul>      
       </div>
     </nav> 
-  </header>
+</header>
+

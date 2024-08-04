@@ -1,37 +1,12 @@
 {% extends "base.html" %}
 {% block title %}
 {% endblock %}
-{% block header%}
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'blog:index' %}">
-    Лента записей
-  </a>
-</li>
-<li class="nav-item">              
-  <a class="nav-link" href="{% url 'pages:about' %}">
-    О проекте
-  </a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="{% url 'pages:rules' %}">
-    Наши правила
-  </a>
-</li>
-{% endblock header %}
+{% block header %}
+{% include 'includes/header.html' %}
+{% endblock %}
 {% block content %}
-<ul>
-  <li>
-    Место: {{ post.location }}
-  </li>
-  <li>
-    Дата: {{ post.date }}
-  </li>
-  <li>
-    Категория: <a href="{% url 'blog:category_posts' post.category  %}">{{ post.category }}</a>
-  </li>
-</ul>          
+{% include 'includes/article.html' with item=post %}
 <p>
   {{ post.text|linebreaksbr }}
 </p>
 {% endblock %}
-

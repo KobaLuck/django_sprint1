@@ -1,0 +1,21 @@
+<article>
+    <ul>
+      <li>
+        Место: {{ item.location }}
+      </li>
+      <li>
+        Дата: {{ item.date }}
+      </li>
+      <li>
+        Категория: <a href="{% url 'blog:category_posts' item.category %}">{{ item.category }}</a>
+      </li>
+    </ul>
+    {% if request.resolver_match.url_name == 'index' %}
+    <p>
+      {{ item.text|truncatewords:10 }}
+    </p>
+    <a href="{% url 'blog:post_detail' item.id %}">Читать полный текст</a>
+    {% endif %}
+  </article>
+  <hr>
+  
